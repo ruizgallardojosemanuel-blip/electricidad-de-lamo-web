@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electricidad de Lamo, S.L. — Instalaciones Eléctricas Palencia desde 1972</title>
+<meta name="description" content="Empresa de instalaciones eléctricas de alta y baja tensión en Palencia. ISO 9001. Iluminación LED, energía solar, telecomunicaciones. Más de 50 años de experiencia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #ffffff;
+  --bg-2:     #f4f6f9;
+  --bg-3:     #eaecf2;
+  --bg-card:  #ffffff;
+  --navy:     #003366;
+  --navy-2:   #001f4d;
+  --navy-lt:  #0a4a8a;
+  --navy-glow:rgba(0,51,102,0.12);
+  --navy-glow-s:rgba(0,51,102,0.28);
+  --accent:   #CC001A;
+  --accent-lt:#e5001e;
+  --accent-glow:rgba(204,0,26,0.22);
+  --text:     #444444;
+  --text-lt:  #777777;
+  --text-dim: #aaaaaa;
+  --heading:  #1a2640;
+  --white:    #ffffff;
+  --border:   rgba(0,0,0,0.08);
+  --border-navy:rgba(0,51,102,0.18);
+  --shadow:   0 2px 16px rgba(0,0,0,0.07);
+  --shadow-h: 0 8px 32px rgba(0,51,102,0.14);
+  --font-h:   'Raleway', sans-serif;
+  --font-b:   'Raleway', sans-serif;
+  --max:      1200px;
+  --ease:     0.65s cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-2)}
+::-webkit-scrollbar-thumb{background:var(--navy)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* LAYOUT */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(32px);transition:opacity var(--ease),transform var(--ease)}
+.rvl{opacity:0;transform:translateX(-44px);transition:opacity var(--ease),transform var(--ease)}
+.rvs{opacity:0;transform:scale(0.94);transition:opacity var(--ease),transform var(--ease)}
+.rv.on,.rvl.on,.rvs.on{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+.d7{transition-delay:.56s}.d8{transition-delay:.64s}
+
+/* SECTION LABEL */
+.slabel{font-family:var(--font-h);font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--navy);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.slabel::before{content:'';width:28px;height:2px;background:var(--navy);border-radius:1px}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0;transition:box-shadow .3s,background .3s;background:var(--navy)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{width:36px;height:36px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:18px;color:#fff;clip-path:polygon(20% 0%,80% 0%,100% 20%,100% 80%,80% 100%,20% 100%,0% 80%,0% 20%)}
+.logo-text{font-family:var(--font-h);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;line-height:1.2;color:#fff}
+.logo-text em{color:rgba(255,255,255,.7);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{flex-shrink:0;padding:10px 22px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s,box-shadow .2s;font-family:var(--font-b)}
+.nav-cta:hover{background:var(--accent-lt);box-shadow:0 0 20px var(--accent-glow)}
+.mbtn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:4px}
+
+/* MOBILE NAV */
+.mnav{display:none;position:fixed;inset:0;z-index:999;background:var(--navy-2);padding:80px 28px 40px;flex-direction:column;gap:28px}
+.mnav.open{display:flex}
+.mnav a{font-family:var(--font-h);font-size:36px;font-weight:800;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:20px;transition:color .2s}
+.mnav a:hover{color:rgba(255,255,255,.6)}
+
+/* ===== HERO ===== */
+.hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#001a33 0%,#003366 50%,#00264d 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;transform:perspective(600px) rotateX(30deg) scale(1.6);transform-origin:center bottom;opacity:.5}
+.sparks{position:absolute;inset:0;pointer-events:none}
+.spark{position:absolute;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.6),transparent);animation:spark-fall linear infinite;opacity:0}
+@keyframes spark-fall{0%{opacity:0;transform:translateY(-60px)}10%{opacity:.6}90%{opacity:.6}100%{opacity:0;transform:translateY(calc(100vh + 60px))}}
+.hero-bolt{position:absolute;right:6%;top:50%;transform:translateY(-50%);opacity:.04;pointer-events:none}
+.hero-bolt svg{width:280px;height:280px;fill:#fff}
+.hero-year{position:absolute;bottom:20px;left:20px;font-family:var(--font-h);font-size:130px;font-weight:900;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none}
+.hero-content{position:relative;z-index:2;padding:0 24px 80px;max-width:var(--max);width:100%;margin:0 auto}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:28px;animation:fiu .8s .3s both}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.5)}}
+.hero-h1{font-family:var(--font-h);font-weight:900;font-size:clamp(54px,9vw,120px);line-height:.88;letter-spacing:-.02em;text-transform:uppercase;color:#ffffff;margin-bottom:28px;animation:fiu .8s .5s both}
+.hero-h1 em{color:var(--accent);font-style:normal}
+.hero-sub{font-size:clamp(14px,1.6vw,17px);color:rgba(255,255,255,.65);max-width:500px;line-height:1.8;margin-bottom:44px;animation:fiu .8s .7s both}
+.hero-btns{display:flex;align-items:center;gap:20px;flex-wrap:wrap;animation:fiu .8s .9s both}
+.btn-p{padding:14px 32px;background:var(--accent);color:#fff;font-family:var(--font-h);font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s,box-shadow .2s;display:inline-block;position:relative;overflow:hidden}
+.btn-p::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);transition:transform .4s}
+.btn-p:hover::after{transform:translateX(100%)}
+.btn-p:hover{background:var(--accent-lt);box-shadow:0 6px 28px var(--accent-glow)}
+.btn-s{font-size:13px;font-weight:600;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:8px;transition:color .2s}
+.btn-s:hover{color:#fff}
+.btn-s svg{transition:transform .2s}
+.btn-s:hover svg{transform:translateX(4px)}
+.scroll-hint{position:absolute;bottom:28px;right:28px;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.4;animation:fi 1.5s 1.5s both;color:#fff}
+.scroll-hint span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl}
+.scroll-line{width:1px;height:44px;background:linear-gradient(180deg,rgba(255,255,255,.8),transparent);animation:scroll-p 2s infinite}
+@keyframes scroll-p{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fiu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fi{from{opacity:0}to{opacity:.4}}
+
+/* ===== STATS BAR ===== */
+.stats-bar{background:#fff;border-bottom:3px solid var(--navy);padding:44px 0;box-shadow:var(--shadow)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:0 32px;border-right:1px solid var(--border);text-align:center}
+.stat:last-child{border-right:none}
+.stat-n{font-family:var(--font-h);font-size:clamp(38px,5vw,64px);font-weight:900;color:var(--navy);line-height:1;display:block}
+.stat-l{font-size:12px;color:var(--text-lt);letter-spacing:.04em;margin-top:6px;font-weight:500}
+
+/* ===== ABOUT ===== */
+.about{padding:120px 0;background:#fff;position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:500px;height:500px;background:radial-gradient(circle,var(--navy-glow) 0%,transparent 70%);pointer-events:none}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-h2{font-family:var(--font-h);font-size:clamp(36px,5vw,62px);font-weight:900;text-transform:uppercase;line-height:.95;margin-bottom:24px;color:var(--heading)}
+.about-h2 em{color:var(--navy);font-style:normal}
+.about-p{font-size:15px;color:var(--text);line-height:1.85;margin-bottom:18px}
+.about-p strong{color:var(--heading)}
+.clients-wrap{margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.clients-lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px;font-weight:600}
+.client-tags{display:flex;gap:8px;flex-wrap:wrap}
+.ctag{font-family:var(--font-h);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);padding:5px 12px;border:1px solid var(--border-navy);background:#fff;transition:all .2s}
+.ctag:hover{background:var(--navy);color:#fff}
+.about-imgs{position:relative}
+.about-img-main{width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--shadow-h)}
+.about-img-sub{position:absolute;bottom:-20px;left:-20px;width:55%;border:4px solid #fff;box-shadow:var(--shadow)}
+.about-badge{position:absolute;top:-16px;right:-16px;background:var(--navy);padding:14px 18px;text-align:center;box-shadow:var(--shadow-h)}
+.about-badge-y{font-family:var(--font-h);font-size:34px;font-weight:900;color:#fff;line-height:1}
+.about-badge-t{font-size:10px;color:rgba(255,255,255,.75);letter-spacing:.15em;text-transform:uppercase;display:block}
+
+/* ===== SERVICES ===== */
+.services{padding:120px 0;background:var(--bg-2)}
+.srv-head{max-width:600px;margin-bottom:52px}
+.srv-h2{font-family:var(--font-h);font-size:clamp(32px,5vw,56px);font-weight:900;text-transform:uppercase;line-height:.95;margin-bottom:14px;color:var(--heading)}
+.srv-h2 em{color:var(--navy);font-style:normal}
+.srv-sub{font-size:14px;color:var(--text-lt);line-height:1.75}
+.srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.srv-card{background:#fff;padding:32px 24px;position:relative;overflow:hidden;border:1px solid var(--border);border-radius:2px;transition:box-shadow .3s,transform .3s,border-color .3s}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--navy);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.srv-card:hover{box-shadow:var(--shadow-h);transform:translateY(-4px);border-color:var(--border-navy)}
+.srv-card:hover::after{transform:scaleX(1)}
+.srv-icon{width:44px;height:44px;color:var(--navy);margin-bottom:20px}
+.srv-n{font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--text-dim);margin-bottom:8px;font-family:var(--font-h)}
+.srv-name{font-family:var(--font-h);font-size:18px;font-weight:800;text-transform:uppercase;color:var(--heading);line-height:1.2;margin-bottom:10px}
+.srv-desc{font-size:12px;color:var(--text-lt);line-height:1.65}
+
+/* ===== PROJECTS ===== */
+.projects{padding:120px 0;background:#fff}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:20px}
+.proj-h2{font-family:var(--font-h);font-size:clamp(32px,5vw,56px);font-weight:900;text-transform:uppercase;line-height:.95;color:var(--heading)}
+.proj-h2 em{color:var(--navy);font-style:normal}
+.proj-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:320px 240px;gap:8px}
+.proj-item{position:relative;overflow:hidden;background:var(--bg-3);border-radius:2px}
+.proj-item:first-child{grid-row:1/3}
+.proj-img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block}
+.proj-item:hover .proj-img{transform:scale(1.06)}
+.proj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,20,51,.85) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.proj-lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:5px;font-weight:600}
+.proj-name{font-family:var(--font-h);font-size:19px;font-weight:800;text-transform:uppercase;color:#fff;line-height:1.2}
+.proj-item:first-child .proj-name{font-size:26px}
+
+/* ===== GALLERY STRIP ===== */
+.gallery{padding:60px 0;background:var(--bg-2);overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.gallery-track{display:flex;gap:8px;animation:slide 40s linear infinite}
+.gallery-track:hover{animation-play-state:paused}
+.gallery-img{height:220px;width:300px;object-fit:cover;flex-shrink:0;filter:grayscale(.2);transition:filter .3s;border-radius:2px}
+.gallery-img:hover{filter:none}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== CERTS ===== */
+.certs{padding:80px 0;background:#fff;border-top:1px solid var(--border)}
+.cert-grid{display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center}
+.cert-ring{width:120px;height:120px;border:3px solid var(--navy);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;margin:0 auto 12px;box-shadow:0 0 0 6px rgba(0,51,102,.07)}
+.cert-ring::before{content:'';position:absolute;inset:8px;border:1px solid var(--border-navy);border-radius:50%}
+.cert-iso{font-family:var(--font-h);font-size:21px;font-weight:900;color:var(--navy);line-height:1}
+.cert-num{font-size:10px;color:var(--text-lt);margin-top:3px;font-weight:500}
+.cert-badge-lbl{font-size:10px;color:var(--text-lt);letter-spacing:.1em;text-transform:uppercase;text-align:center;font-weight:600}
+.cert-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cert-item{display:flex;align-items:flex-start;gap:12px;padding:16px;background:var(--bg-2);border:1px solid var(--border);transition:border-color .2s,box-shadow .2s;border-radius:2px}
+.cert-item:hover{border-color:var(--border-navy);box-shadow:var(--shadow)}
+.cert-dot{width:6px;height:6px;background:var(--navy);border-radius:50%;flex-shrink:0;margin-top:6px}
+.cert-t{font-size:12px;color:var(--text-lt);line-height:1.55}
+.cert-t strong{color:var(--heading);display:block;margin-bottom:3px;font-size:13px;font-weight:700}
+
+/* ===== CONTACT ===== */
+.contact{padding:120px 0;background:var(--bg-2);position:relative}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.contact-h2{font-family:var(--font-h);font-size:clamp(36px,5vw,60px);font-weight:900;text-transform:uppercase;line-height:.95;margin-bottom:18px;color:var(--heading)}
+.contact-h2 em{color:var(--navy);font-style:normal}
+.contact-txt{font-size:14px;color:var(--text-lt);line-height:1.85;margin-bottom:40px}
+.ci-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.ci{display:flex;gap:14px;align-items:flex-start}
+.ci-icon{width:40px;height:40px;background:var(--navy);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+.ci-lbl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px;font-weight:600}
+.ci-val{font-size:14px;color:var(--heading);font-weight:600}
+.ci-val a{transition:color .2s}
+.ci-val a:hover{color:var(--navy)}
+.urg{margin-top:24px;padding:18px 20px;background:var(--navy);border-radius:2px}
+.urg-lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px;font-weight:700}
+.urg-t{font-size:13px;color:rgba(255,255,255,.85)}
+.urg-t strong a{color:#fff}
+.form-wrap{background:#fff;border:1px solid var(--border);padding:44px;box-shadow:var(--shadow)}
+.form-h{font-family:var(--font-h);font-size:22px;font-weight:800;text-transform:uppercase;color:var(--heading);margin-bottom:28px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);font-weight:700}
+.fi,.fs,.fta{width:100%;background:var(--bg-2);border:1px solid var(--border);color:var(--heading);padding:12px 14px;font-family:var(--font-b);font-size:13px;outline:none;transition:border-color .2s;border-radius:2px}
+.fi:focus,.fs:focus,.fta:focus{border-color:var(--navy);background:#fff}
+.fs option{background:#fff;color:var(--heading)}
+.fta{resize:vertical;min-height:95px}
+.fsub{width:100%;padding:15px;background:var(--accent);color:#fff;font-family:var(--font-h);font-size:16px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;margin-top:6px;border-radius:2px}
+.fsub:hover{background:var(--accent-lt);box-shadow:0 6px 24px var(--accent-glow)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--navy-2);padding:56px 0 32px}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand{font-family:var(--font-h);font-size:18px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:10px}
+.footer-brand em{color:rgba(255,255,255,.55);font-style:normal}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;max-width:260px}
+.footer-col-h{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px;font-weight:700}
+.footer-ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-ul a{font-size:13px;color:rgba(255,255,255,.6);transition:color .2s}
+.footer-ul a:hover{color:#fff}
+.footer-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);gap:14px;flex-wrap:wrap}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.35)}
+.footer-iso{font-size:11px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:7px}
+.footer-iso::before{content:'';width:14px;height:14px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .srv-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-grid{grid-template-columns:1fr 1fr;grid-template-rows:280px 200px 200px}
+  .proj-item:first-child{grid-row:1/2;grid-column:1/3}
+  .cert-list{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .mbtn{display:block}
+  .hero-bolt,.hero-year{display:none}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-img-sub{display:none}
+  .srv-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:1px}
+  .stat{padding:20px;border-right:none;border-bottom:1px solid var(--border)}
+  .proj-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .proj-item{height:240px}
+  .proj-item:first-child{height:300px;grid-column:auto;grid-row:auto}
+  .cert-grid{grid-template-columns:1fr;gap:28px}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .form-wrap{padding:28px 20px}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:28px}
+  .footer-bot{flex-direction:column;text-align:center}
+  .gallery-track{animation-duration:25s}
+}
+@media(max-width:480px){
+  .hero-content{padding:0 16px 60px}
+  .hero-h1{font-size:48px}
+}
+@media(prefers-reduced-motion:reduce){
+  .rv,.rvl,.rvs{opacity:1;transform:none;transition:none}
+  .hero-tag,.hero-h1,.hero-sub,.hero-btns,.scroll-hint{animation:none;opacity:1}
+  .spark{display:none}
+  .gallery-track{animation:none;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#inicio" class="logo" aria-label="Electricidad de Lamo inicio">
+        <div class="logo-icon">⚡</div>
+        <div class="logo-text">Electricidad<br><em>de Lamo</em></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#nosotros">Empresa</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="nav-cta">Pedir presupuesto</a>
+      <button class="mbtn" id="mbtn" aria-label="Abrir menú">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mnav" id="mnav">
+  <a href="#nosotros" onclick="closeMnav()">Empresa</a>
+  <a href="#servicios" onclick="closeMnav()">Servicios</a>
+  <a href="#proyectos" onclick="closeMnav()">Proyectos</a>
+  <a href="#contacto" onclick="closeMnav()">Presupuesto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-grid" id="heroGrid"></div>
+  <div class="sparks" id="sparks"></div>
+  <div class="hero-bolt">
+    <svg viewBox="0 0 100 100"><polygon points="60,5 20,55 45,55 40,95 80,45 55,45"/></svg>
+  </div>
+  <div class="hero-year">1972</div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-tag">Palencia · Castilla y León · Desde 1972</div>
+      <h1 class="hero-h1">ENCENDEMOS<br>LO QUE <em>OTROS</em><br>NO PUEDEN</h1>
+      <p class="hero-sub">Instalaciones eléctricas de alta y baja tensión, iluminación LED y proyectos de ingeniería. Más de 50 años iluminando Castilla y León. Certificados ISO 9001.</p>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-p">Solicitar presupuesto</a>
+        <a href="#servicios" class="btn-s">
+          Ver servicios
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat rv d1"><span class="stat-n" data-count="52">0</span><p class="stat-l">Años de experiencia</p></div>
+      <div class="stat rv d2"><span class="stat-n" data-count="500">0</span><p class="stat-l">Proyectos completados</p></div>
+      <div class="stat rv d3"><span class="stat-n">ISO<br>9001</span><p class="stat-l">Certificación de calidad</p></div>
+      <div class="stat rv d4"><span class="stat-n" data-count="30">0</span><p class="stat-l">Grandes empresas clientes</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="rvl">
+        <div class="slabel">Sobre nosotros</div>
+        <h2 class="about-h2">52 AÑOS <em>ENCENDIENDO</em> CASTILLA Y LEÓN</h2>
+        <p class="about-p">Desde 1972, <strong>Electricidad de Lamo</strong> ha sido el referente eléctrico de Palencia y Castilla y León. Empezamos como instaladora local y hoy somos el socio técnico de confianza de industrias, hospitales y monumentos de toda la región.</p>
+        <p class="about-p">Trabajamos para el particular que quiere reformar su hogar y para grandes empresas que necesitan un proveedor serio. Nuestro certificado <strong>ISO 9001:2015</strong> garantiza el mismo rigor en cada proyecto, grande o pequeño.</p>
+        <div class="clients-wrap">
+          <p class="clients-lbl">Empresas que confían en nosotros</p>
+          <div class="client-tags">
+            <span class="ctag">Gullón</span>
+            <span class="ctag">Renault</span>
+            <span class="ctag">Ferrovial</span>
+            <span class="ctag">H. Río Carrión</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-imgs rv">
+        <img src="https://www.portaldetuciudad.net/imagenes/catalogo/69723/ImgProducto_697236-1.jpg" alt="Iluminación monumental — Electricidad de Lamo" class="about-img-main" loading="lazy" onerror="this.style.background='#1a1a1a';this.alt='[Foto iluminación monumental]'">
+        <img src="https://www.portaldetuciudad.net/imagenes/catalogo/69723/ImgProducto_697237-1.jpg" alt="Instalaciones eléctricas" class="about-img-sub" loading="lazy" onerror="this.style.display='none'">
+        <div class="about-badge"><div class="about-badge-y">1972</div><span class="about-badge-t">Fundación</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="srv-head rv">
+      <div class="slabel">Nuestros servicios</div>
+      <h2 class="srv-h2">TODO LO QUE NECESITAS,<br><em>UN SOLO PROVEEDOR</em></h2>
+      <p class="srv-sub">Desde la instalación eléctrica de una vivienda hasta el proyecto de ingeniería de una nave industrial. Todos los registros y autorizaciones necesarios.</p>
+    </div>
+    <div class="srv-grid">
+
+      <div class="srv-card rv d1">
+        <svg class="srv-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <div class="srv-n">01</div>
+        <h3 class="srv-name">Instalaciones Eléctricas</h3>
+        <p class="srv-desc">Alta y baja tensión. Reformas, nuevas instalaciones y mantenimiento para viviendas, comunidades e industria.</p>
+      </div>
+
+      <div class="srv-card rv d2">
+        <svg class="srv-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <div class="srv-n">02</div>
+        <h3 class="srv-name">Iluminación LED</h3>
+        <p class="srv-desc">Sistemas eficientes para interior, exterior, industrial y alumbrado público y monumental.</p>
+      </div>
+
+      <div class="srv-card rv d3">
+        <svg class="srv-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <div class="srv-n">03</div>
+        <h3 class="srv-name">Ingeniería Eléctrica</h3>
+        <p class="srv-desc">Proyectos y estudios de ingeniería. Legalización de instalaciones y dirección técnica de obra.</p>
+      </div>
+
+      <div class="srv-card rv d4">
+        <svg class="srv-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="srv-n">04</div>
+        <h3 class="srv-name">Protección Incendios</h3>
+        <p class="srv-desc">Instalación y mantenimiento de sistemas de detección y extinción. Empresa inscrita en el REAI.</p>
+      </div>
+
+      <div class="srv-card rv d5">
+        <svg class="srv-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <div class="srv-n">05</div>
+        <h3 class="srv-name">Telecomunicaciones</h3>
+        <p class="srv-desc">Infraestructura ICT, fibra óptica y redes de comunicación para edificios y empresas.</p>
+      </div>
+
+      <div class="srv-card rv d6">
+        <svg class="srv-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <div class="srv-n">06</div>
+        <h3 class="srv-name">Energía Solar</h3>
+        <p class="srv-desc">Instalación de paneles fotovoltaicos para autoconsumo residencial e industrial.</p>
+      </div>
+
+      <div class="srv-card rv d7">
+        <svg class="srv-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div class="srv-n">07</div>
+        <h3 class="srv-name">Cargadores Eléctricos</h3>
+        <p class="srv-desc">Puntos de recarga para particulares, comunidades, flotas y parkings públicos.</p>
+      </div>
+
+      <div class="srv-card rv d8">
+        <svg class="srv-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <div class="srv-n">08</div>
+        <h3 class="srv-name">Alumbrado Público</h3>
+        <p class="srv-desc">Proyectos viarios y monumentales. Especialistas en iluminación de patrimonio histórico.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="proyectos">
+  <div class="wrap">
+    <div class="proj-head">
+      <div>
+        <div class="slabel">Proyectos destacados</div>
+        <h2 class="proj-h2 rv">CUANDO LA LUZ<br><em>TRANSFORMA</em></h2>
+      </div>
+      <p class="rv" style="max-width:340px;font-size:14px;color:var(--text);line-height:1.75;">Iluminamos el patrimonio de Castilla y León. Cada monumento encendido es una historia que contamos en luz.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-item rvs d1">
+        <img src="https://www.portaldetuciudad.net/imagenes/catalogo/69723/ImgProducto_697236-1.jpg" alt="Iluminación monumental" class="proj-img" loading="lazy" onerror="this.parentElement.style.background='#1a1a1a'">
+        <div class="proj-ov"><span class="proj-lbl">Iluminación monumental</span><h3 class="proj-name">Castillo de Fuentes de Valdepero</h3></div>
+      </div>
+      <div class="proj-item rvs d2">
+        <img src="https://www.portaldetuciudad.net/imagenes/catalogo/69723/ImgProducto_697238-1.JPG" alt="Alumbrado público" class="proj-img" loading="lazy" onerror="this.parentElement.style.background='#1a1a1a'">
+        <div class="proj-ov"><span class="proj-lbl">Alumbrado público</span><h3 class="proj-name">Alumbrado Viario</h3></div>
+      </div>
+      <div class="proj-item rvs d3">
+        <img src="https://www.portaldetuciudad.net/imagenes/catalogo/69723/ImgProducto_6972313-1.jpg" alt="Energía solar" class="proj-img" loading="lazy" onerror="this.parentElement.style.background='#1a1a1a'">
+        <div class="proj-ov"><span class="proj-lbl">Energía solar</span><h3 class="proj-name">Instalaciones Fotovoltaicas</h3></div>
+      </div>
+      <div class="proj-item rvs d4">
+        <img src="https://www.portaldetuciudad.net/imagenes/catalogo/69723/ImgProducto_6972311-1.JPG" alt="Industrial" class="proj-img" loading="lazy" onerror="this.parentElement.style.background='#1a1a1a'">
+        <div class="proj-ov"><span class="proj-lbl">Industrial</span><h3 class="proj-name">Instalaciones Industriales</h3></div>
+      </div>
+      <div class="proj-item rvs d5">
+        <img src="https://www.portaldetuciudad.net/imagenes/catalogo/69723/ImgProducto_6972312-1.jpg" alt="Movilidad eléctrica" class="proj-img" loading="lazy" onerror="this.parentElement.style.background='#1a1a1a'">
+        <div class="proj-ov"><span class="proj-lbl">Movilidad eléctrica</span><h3 class="proj-name">Cargadores EV</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP (infinite scroll) -->
+<div class="gallery">
+  <div class="gallery-track" id="galleryTrack">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697231-1_amp.jpg" class="gallery-img" alt="Trabajo Electricidad de Lamo" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697231-2_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697231-3_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697232-1_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697232-2_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697232-3_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697232-4_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-1_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-2_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-3_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-4_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-5_amp.jpg" class="gallery-img" alt="" loading="lazy" onerror="this.style.display='none'">
+    <!-- duplicado para loop infinito -->
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697231-1_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697231-2_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697231-3_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697232-1_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697232-2_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697232-3_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697232-4_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-1_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-2_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-3_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-4_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://www.portaldetuciudad.com/imagenes/12/empresas/Img-697233-5_amp.jpg" class="gallery-img" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<section class="certs">
+  <div class="wrap">
+    <div class="cert-grid">
+      <div class="rvs">
+        <div class="cert-ring">
+          <div class="cert-iso">ISO<br>9001</div>
+          <div class="cert-num">Nº 72423</div>
+        </div>
+        <p class="cert-badge-lbl">Certificado<br>de Calidad</p>
+      </div>
+      <div class="rv">
+        <div class="slabel" style="margin-bottom:20px">Registros y autorizaciones</div>
+        <div class="cert-list">
+          <div class="cert-item d1"><div class="cert-dot"></div><div class="cert-t"><strong>Instalador autorizado baja tensión</strong>Habilitado para todo tipo de instalaciones en baja tensión</div></div>
+          <div class="cert-item d2"><div class="cert-dot"></div><div class="cert-t"><strong>Instalador/mantenedor alta tensión</strong>Trabajos en líneas y centros de transformación</div></div>
+          <div class="cert-item d3"><div class="cert-dot"></div><div class="cert-t"><strong>Registro instaladores telecomunicaciones</strong>Infraestructuras ICT y redes de comunicación</div></div>
+          <div class="cert-item d4"><div class="cert-dot"></div><div class="cert-t"><strong>Protección contra incendios</strong>Empresa inscrita — instalación y mantenimiento</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rvl">
+        <div class="slabel">Contacto</div>
+        <h2 class="contact-h2">¿HABLAMOS DE<br><em>TU PROYECTO?</em></h2>
+        <p class="contact-txt">Cuéntanos qué necesitas y te respondemos con un presupuesto sin compromiso. Atendemos desde reformas domésticas hasta grandes proyectos industriales.</p>
+        <ul class="ci-list">
+          <li class="ci">
+            <div class="ci-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.44a2 2 0 0 1 1.95-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.78-1.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><p class="ci-lbl">Teléfono</p><p class="ci-val"><a href="tel:979727031">979 727 031</a> &nbsp;·&nbsp; <a href="tel:699399546">699 399 546</a></p></div>
+          </li>
+          <li class="ci">
+            <div class="ci-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><p class="ci-lbl">Dirección</p><p class="ci-val">C/ Tejedores, 21 · P.I. San Antolín · 34004 Palencia</p></div>
+          </li>
+          <li class="ci">
+            <div class="ci-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><p class="ci-lbl">Email</p><p class="ci-val"><a href="mailto:palencia@electricidaddelamo.es">palencia@electricidaddelamo.es</a></p></div>
+          </li>
+          <li class="ci">
+            <div class="ci-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><p class="ci-lbl">Horario</p><p class="ci-val">Lun–Vie: 8:30–13:30 · 15:00–19:00</p></div>
+          </li>
+        </ul>
+        <div class="urg">
+          <p class="urg-lbl">¿Urgencia eléctrica?</p>
+          <p class="urg-t">Llama al <strong><a href="tel:699399546">699 399 546</a></strong> para emergencias</p>
+        </div>
+      </div>
+      <div class="form-wrap rv">
+        <h3 class="form-h">Solicitar presupuesto</h3>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Nombre *</label><input type="text" class="fi" placeholder="Tu nombre" required></div>
+          <div class="fg"><label class="fl">Empresa</label><input type="text" class="fi" placeholder="Nombre empresa"></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Teléfono *</label><input type="tel" class="fi" placeholder="Tu teléfono" required></div>
+          <div class="fg"><label class="fl">Email</label><input type="email" class="fi" placeholder="tu@email.com"></div>
+        </div>
+        <div class="fg"><label class="fl">Tipo de servicio</label>
+          <select class="fs">
+            <option value="">Selecciona un servicio...</option>
+            <option>Instalación eléctrica</option>
+            <option>Iluminación LED</option>
+            <option>Ingeniería eléctrica</option>
+            <option>Protección contra incendios</option>
+            <option>Telecomunicaciones</option>
+            <option>Energía solar fotovoltaica</option>
+            <option>Cargador vehículo eléctrico</option>
+            <option>Alumbrado público / monumental</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Descripción del proyecto</label><textarea class="fta" placeholder="Cuéntanos qué necesitas..."></textarea></div>
+        <button type="submit" class="fsub">Enviar solicitud →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Electricidad <em>de Lamo</em>, S.L.</div>
+        <p class="footer-tagline">Empresa de instalaciones eléctricas en Palencia desde 1972. ISO 9001:2015. Trabajamos para particulares, empresas e instituciones en toda Castilla y León.</p>
+      </div>
+      <div>
+        <p class="footer-col-h">Servicios</p>
+        <ul class="footer-ul">
+          <li><a href="#servicios">Instalaciones eléctricas</a></li>
+          <li><a href="#servicios">Iluminación LED</a></li>
+          <li><a href="#servicios">Ingeniería eléctrica</a></li>
+          <li><a href="#servicios">Energía solar</a></li>
+          <li><a href="#servicios">Protección incendios</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-h">Empresa</p>
+        <ul class="footer-ul">
+          <li><a href="#nosotros">Sobre nosotros</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Solicitar presupuesto</a></li>
+          <li><a href="tel:979727031">979 727 031</a></li>
+          <li><a href="tel:699399546">699 399 546</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p class="footer-copy">© 2026 Electricidad de Lamo, S.L. · C/ Tejedores 21, P.I. San Antolín · 34004 Palencia</p>
+      <div class="footer-iso">ISO 9001:2015 · Certificado Nº 72423</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('s', window.scrollY > 60), {passive:true});
+
+// MOBILE MENU
+const mbtn = document.getElementById('mbtn');
+const mnav = document.getElementById('mnav');
+mbtn.addEventListener('click', () => mnav.classList.toggle('open'));
+window.closeMnav = () => mnav.classList.remove('open');
+
+// REVEAL ON SCROLL
+const revEls = document.querySelectorAll('.rv,.rvl,.rvs');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); revObs.unobserve(e.target); } });
+}, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+revEls.forEach(el => revObs.observe(el));
+
+// COUNTER
+function animCount(el){
+  const target = parseInt(el.dataset.count);
+  if(!target) return;
+  const dur = 2000;
+  const start = performance.now();
+  const run = now => {
+    const p = Math.min((now - start)/dur, 1);
+    const e = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.floor(e * target) + (p>=1?'+':'');
+    if(p<1) requestAnimationFrame(run);
+  };
+  requestAnimationFrame(run);
+}
+const cntObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting && e.target.dataset.count){ animCount(e.target); cntObs.unobserve(e.target); }
+  });
+}, {threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
+
+// HERO PARALLAX
+const grid = document.getElementById('heroGrid');
+const bolt = document.querySelector('.hero-bolt');
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  if(s < window.innerHeight * 1.2){
+    if(grid) grid.style.transform = `perspective(600px) rotateX(30deg) scale(1.6) translateY(${s*.25}px)`;
+    if(bolt) bolt.style.transform = `translateY(calc(-50% + ${s*.18}px))`;
+  }
+}, {passive:true});
+
+// ELECTRIC SPARKS
+const sc = document.getElementById('sparks');
+if(sc){
+  for(let i=0;i<10;i++){
+    const s = document.createElement('div');
+    s.className='spark';
+    s.style.cssText=`left:${Math.random()*100}%;height:${35+Math.random()*100}px;animation-duration:${3+Math.random()*5}s;animation-delay:${Math.random()*7}s`;
+    sc.appendChild(s);
+  }
+}
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+});
+
+})();
+</script>
+</body>
+</html>
